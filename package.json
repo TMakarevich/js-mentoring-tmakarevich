@@ -20,6 +20,7 @@
     "Dzmitry_Shaplyka@epam.com",
     "Oleksandr_Halichenko@epam.com"
   ],
+  "mentee": "tatsiana_makarevich@epam.com",
   "license": "ISC",
   "dependencies": {
     "chai": "^4.2.0",
