@@ -23,15 +23,12 @@
 
   if (x < 10 && y < 10) {
     z = x + y;
-  } else if (x >= 10 || y >= 10) {
-    /**I select || operator for cases when one of the variables is equal to 10, and the other is less than 10 */
+  } else
     z = x * y;
-  }
+
   console.log(z);
 
-  (x < 10 && y < 10) ? console.log(z = x + y):
-    (x >= 10 || y >= 10) ? console.log(z = x * y) : '';
-  /**How can I 'close' ternarny operator if there is no code for the 'else' parameter? */
+  (x < 10 && y < 10) ? console.log(z = x + y): console.log(z = x * y);
 }
 
 /** TODO

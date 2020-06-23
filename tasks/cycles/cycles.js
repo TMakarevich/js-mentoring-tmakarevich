@@ -9,11 +9,11 @@
  * @param {number} redemption amount (0 - 9999)
  * @returns {number} discount in percent
  */
-{
-  /**What does it mean 'write the function'? */
-  const redemption = 2701;
+
+function calculateDiscount(redemption) {
   let discount;
-  if (redemption <= 350) {
+  //PLACE YOUR CODE HERE
+  if (redemption >= 0 && redemption <= 350) {
     discount = 0;
   } else if (redemption > 350 && redemption <= 1350) {
     discount = 15;
@@ -21,8 +21,9 @@
     discount = 30;
   } else if (redemption > 2700 && redemption <= 6500) {
     discount = 45;
-  }
-  console.log(discount + '%');
+  } else
+    discount = 0;
+  return discount;
 }
 
 /** TODO
@@ -60,7 +61,7 @@
  */
 {
   const substr = ["I", " love", " JS"];
-  let str = ' '; /**How can I define empty string without displaying of null/undefined and without 'space'? */
+  let str = '';
   for (i = 0; i < substr.length; i++) {
     str = str + substr[i];
   }
@@ -84,3 +85,4 @@
   }
   console.log(total);
 }
+module.exports = calculateDiscount;
