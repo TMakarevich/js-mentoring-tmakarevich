@@ -5,14 +5,11 @@
  */
 {
   const a = 3,
-        b = 2;
+    b = 2;
 
-  if (a + b < 4) {
-    console.log('wrong');
-  } else {
-    console.log('too much');
-  }
+  (a + b < 4) ? console.log('wrong'): console.log('too much');
 }
+
 
 /** TODO
  * The system receives two params x and y.
@@ -21,8 +18,17 @@
  * Task 2 - ternary operator
  */
 {
-    const x = 3;
-    const y = 7;
+  const x = 10;
+  const y = 2;
+
+  if (x < 10 && y < 10) {
+    z = x + y;
+  } else
+    z = x * y;
+
+  console.log(z);
+
+  (x < 10 && y < 10) ? console.log(z = x + y): console.log(z = x * y);
 }
 
 /** TODO
@@ -32,7 +38,26 @@
  */
 
 {
-    const x = 3;
-    const y = 7;
-    const operator = "add";
+  const x = 35;
+  const y = 7;
+  const operator = 'divide';
+  switch (operator) {
+    case 'add':
+      console.log(z = x + y);
+      break;
+    case 'substract':
+      console.log(z = x - y);
+      break;
+    case 'multiply':
+      console.log(z = x * y);
+      break;
+    case 'divide':
+      console.log(z = x / y);
+      break;
+    default:
+      console.log('Default behaviour');
+      break;
+  }
+
+
 }

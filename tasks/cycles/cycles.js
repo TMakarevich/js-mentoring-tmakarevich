@@ -12,9 +12,17 @@
 
 function calculateDiscount(redemption) {
   let discount;
-
   //PLACE YOUR CODE HERE
-
+  if (redemption >= 0 && redemption <= 350) {
+    discount = 0;
+  } else if (redemption > 350 && redemption <= 1350) {
+    discount = 15;
+  } else if (redemption > 1350 && redemption <= 2700) {
+    discount = 30;
+  } else if (redemption > 2700 && redemption <= 6500) {
+    discount = 45;
+  } else
+    discount = 0;
   return discount;
 }
 
@@ -22,7 +30,30 @@ function calculateDiscount(redemption) {
  * implement factorial algorithm using for, while, do..while operators
  */
 {
-  const i = 10; //10! = 3628800
+  const i = 9; //10! = 3628800
+
+  let z = 1;
+  for (let n = 1; n <= i; n++) {
+    z = z * n;
+  }
+  console.log(z);
+
+  let n = 1;
+  let y = 1;
+  while (n <= i) {
+    y = y * n;
+    n++;
+  }
+  console.log(y);
+
+  let a = 1;
+  let b = 1;
+  do {
+    b = b * a;
+    a++;
+  }
+  while (a <= i);
+  console.log(b);
 }
 
 /**
@@ -30,6 +61,11 @@ function calculateDiscount(redemption) {
  */
 {
   const substr = ["I", " love", " JS"];
+  let str = '';
+  for (i = 0; i < substr.length; i++) {
+    str = str + substr[i];
+  }
+  console.log(str);
 }
 
 /**
@@ -42,6 +78,11 @@ function calculateDiscount(redemption) {
     interestOnDeposit: 250,
     otherExpences: -300
   };
-}
 
+  let total = 0;
+  for (let type in personIncomes) {
+    total = total + personIncomes[type];
+  }
+  console.log(total);
+}
 module.exports = calculateDiscount;
