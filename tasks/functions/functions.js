@@ -3,7 +3,8 @@
  *
  */
 function add(a, b) {
-
+	let c = a + b;
+	return c;
 }
 
 /**
@@ -15,7 +16,7 @@ function add(a, b) {
  * }
  */
 function getFullName(object) {
-
+	return object.firstName + ' ' + object.lastName;
 }
 
 /**
@@ -23,7 +24,9 @@ function getFullName(object) {
  * true if odd, false if even
  */
 function isOdd(n) {
-
+	if (n % 2 != 0) {
+		return true;
+	} else return false;
 }
 
 /**
@@ -31,7 +34,16 @@ function isOdd(n) {
  * e.g ["one", "two", "three"] should return one
  */
 function getShortest(wordArray) {
+	let min = wordArray[0].length;
+	let minWord = wordArray[0];
 
+	for (i = 1; i < wordArray.length; i++) {
+		if (wordArray[i].length < min) {
+			min = wordArray[i].length;
+			minWord = wordArray[i];
+		}
+	}
+	return minWord;
 }
 
 /**
@@ -39,7 +51,8 @@ function getShortest(wordArray) {
  * e.g getGoogle(5) should return "gooooogle"
  */
 function getGoogle(n) {
-
+	let letter = 'o';
+	return 'g' + letter.repeat(n) + 'gle';
 }
 
 /**
@@ -51,8 +64,13 @@ function getGoogle(n) {
  *    age: 42
  * }
  */
-function getUser(firstName, lastName, age) {
-
+function getUser(firstName = null, lastName = null, age = null) {
+	let user = {
+		firstName,
+		lastName,
+		age,
+	};
+	return user;
 }
 
 /**
@@ -62,7 +80,11 @@ function getUser(firstName, lastName, age) {
  */
 
 function getTotalPath(path) {
-
+	let totalPath = 0;
+	for (i = 0; i < path.length; i++) {
+		totalPath = totalPath + path[i].distance;
+	}
+	return totalPath;
 }
 
 /**
@@ -73,7 +95,9 @@ function getTotalPath(path) {
  */
 
 function discountFunction(amount) {
-
+	return function (percentage) {
+		return percentage - percentage * amount / 100;
+	};
 }
 
 /**
@@ -89,10 +113,12 @@ const myObject = {
 	age: 25,
 	friends: ['Mike', 'Alan', 'Daniel'],
 	keys() {
-		//write your code here
+		for (let type in myObject) {
+			console.log(type);
+		}
 	},
 	call() {
-		//write your code here
+		return 'My name is' + ' ' + this.name + ' ' + this.lastName + ' ' + 'and I am ' + this.age + ' years old. My best friend is ' + this.friends[2];
 	}
 
 };
