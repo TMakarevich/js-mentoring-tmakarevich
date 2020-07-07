@@ -4,11 +4,8 @@
  * @param {string} str
  */
 function reverseString(str) {
-  if (typeof (str) == 'number') return 'This is not a string!';
-  let arr = str.split('');
-  let arrReverse = arr.reverse();
-  let strReverse = arrReverse.join('');
-  return strReverse;
+  if (typeof str !== 'string') return 'This is not a string!';
+  return str.split('').reverse().join('');
 }
 
 /**
@@ -17,12 +14,7 @@ function reverseString(str) {
  * @param {number} year
  */
 function centuryFromYear(year) {
-  let str = String(year); // the logic for non 4 digits year is not realised
-  if (str[2] == 0 && str[3] == 0) {
-    return (Number(str[0] + str[1]));
-  } else if (str[1] <= 9) {
-    return (Number(str[0] + str[1]) + 1);
-  }
+  return Math.ceil(year / 100);
 }
 
 /**
@@ -31,11 +23,12 @@ function centuryFromYear(year) {
  * @param {string} char
  */
 function strCount(str, char) {
-  let count = 0;
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] == char) count = count + 1;
+  let regex = new RegExp(char, 'g');
+  if (str.match(regex) == null) {
+    return 0;
+  } else {
+    return str.match(regex).length;
   }
-  return count;
 }
 
 /**
@@ -58,14 +51,9 @@ function truncateString(str, num) {
  * console.log(replace10("231054")) // 23ten54
  */
 function replace10(text) {
-  let arr = text.split('');
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] == 1 && arr[i + 1] == 0) {
-      arr.splice(i, 2, 'ten');
-    }
-  }
-  let textNew = arr.join('');
-  return textNew;
+  let re = /10/gi;
+  let newstr = text.replace(re, 'ten');
+  return newstr;
 }
 
 /**

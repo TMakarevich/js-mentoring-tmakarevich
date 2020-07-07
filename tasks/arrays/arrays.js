@@ -12,9 +12,7 @@ function getCharactersNames(chars) {
  * @param {Array} chars
  */
 function printCharacterNames(chars) {
-    chars.forEach(char => {
-        console.log(char.name);
-    });
+    chars.forEach(char => console.log(char.name));
 }
 
 /**
@@ -43,8 +41,7 @@ function getJerryInfo(chars) {
  * @return {boolean}
  */
 function isAllHuman(chars) {
-    let allHuman = char => char.species == 'Human';
-    return (chars.every(allHuman));
+    return chars.every(char => char.species == 'Human');
 }
 
 /**
@@ -53,8 +50,7 @@ function isAllHuman(chars) {
  * @return {boolean}
  */
 function isAnyFishPerson(chars) {
-    let AnyFishPerson = char => char.type == 'Fish-Person';
-    return (chars.some(AnyFishPerson));
+    return chars.some(char => char.type == 'Fish-Person');
 }
 
 /**
