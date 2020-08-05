@@ -22,24 +22,13 @@ const jsonFile = require('./test.json');
 // console.log(jsonFile.list.entries);
 const mas = jsonFile.list.entries;
 // console.log(mas);
-let parsed = [];
-for (let i = 0; i < mas.length; i++) {
-    const str = mas[i].entry.name;
-    const str1 = str.slice(0, -5);
-    const str2 = '{"docId": "http://doc.epam.com/' + str1 + '"}';
-    parsed.push(str2);
-}
-// console.log(parsed);
-// console.log(parsed.length);
-let parsedStr = parsed.join();
-// console.log(parsedStr);
-let updParsedStr = '[' + parsedStr + ']';
-// console.log(updParsedStr);
-
+let mas1 = mas.map(element => '{"docId": "http://doc.epam.com/' + element.entry.name.slice(0, -5) + '"}');
+// console.log(mas1);
+mas1 = '['+ mas1.join() + ']';
 const filePath = path.join(__dirname, 'parsed.json');
-fs.writeFile(filePath, updParsedStr, err => {
+fs.writeFile(filePath, mas1, err => {
     if (err) {
         throw err;
     }
     console.log('The file is created!');
-}); // creates a file
+});
