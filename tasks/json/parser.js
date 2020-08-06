@@ -19,14 +19,18 @@ const fs = require('fs');
 const path = require('path');
 
 const jsonFile = require('./test.json');
-// console.log(jsonFile.list.entries);
-const mas = jsonFile.list.entries;
-// console.log(mas);
-let mas1 = mas.map(element => '{"docId": "http://doc.epam.com/' + element.entry.name.slice(0, -5) + '"}');
-// console.log(mas1);
-mas1 = '['+ mas1.join() + ']';
+
+let parsed = jsonFile.list.entries.map(element => {
+    let newName = 'http://doc.epam.com/' + element.entry.name.replace('.html', '');
+    return {
+        docId: newName
+    };
+});
+// console.log(parsed);
+// console.log(JSON.stringify(parsed, null, '\t'));
+
 const filePath = path.join(__dirname, 'parsed.json');
-fs.writeFile(filePath, mas1, err => {
+fs.writeFile(filePath, JSON.stringify(parsed, null, '\t'), err => {
     if (err) {
         throw err;
     }
